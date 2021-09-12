@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "QualityMinds": {
+      "commandName": "Executable"
+    },
+    "Docker": {
+      "commandName": "Executable"
+    }
+  }
+}
