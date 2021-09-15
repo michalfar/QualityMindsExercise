@@ -22,7 +22,7 @@ namespace QualityMinds.Core
         {
             var currentDirectory = Directory.GetCurrentDirectory();
 
-            return new ConfigurationBuilder().AddJsonFile(currentDirectory + @"/appsettings.json")
+            return new ConfigurationBuilder().AddJsonFile(Path.Combine(currentDirectory, "appsettings.json"))
                 .Build().GetSection(sectionName).Get<T>();
         }
     }
