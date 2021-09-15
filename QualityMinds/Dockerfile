@@ -1,4 +1,3 @@
-
 FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
 WORKDIR /app
 COPY *.sln .
@@ -12,4 +11,3 @@ RUN dotnet build
 WORKDIR /app/QualityMinds
 
 ENTRYPOINT ["dotnet", "test", "QualityMinds.csproj"]
-#ENTRYPOINT ["ls"]

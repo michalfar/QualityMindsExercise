@@ -9,8 +9,8 @@ services:
     ports:
       - "5050:5050"
     volumes:
-      - /c/Users/micha/source/repos/QualityMinds/QualityMinds/bin/Debug/net5.0/allure-results:/app/allure-results
-      - /c/Users/micha/source/repos/QualityMinds/QualityMinds/bin/Debug/net5.0/allure-reports:/app/default-reports
+      - ./QualityMinds/bin/Debug/net5.0/allure-results:/app/allure-results
+      - ./QualityMinds/bin/Debug/net5.0/allure-reports:/app/default-reports
 
   allure-ui:
     image: "frankescobar/allure-docker-service-ui"

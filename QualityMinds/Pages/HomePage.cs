@@ -21,7 +21,7 @@ namespace QualityMinds.Pages
 
         public HomePage Go()
         {
-            Driver.Navigate().GoToUrl("https://qualityminds.de");
+            Driver.Navigate().GoToUrl(Configuration.Environment.ApplicationUrl);
             AcceptCookies();
             return this;
         }

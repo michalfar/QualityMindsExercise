@@ -14,7 +14,6 @@ namespace QualityMindsTests.Tests
     [Parallelizable(ParallelScope.Fixtures)]
     [TestFixture(BrowserType.Chrome)]
     [TestFixture(BrowserType.Firefox)]
-    [AllureNUnit]
     public class KontaktPageTest : BaseTest
     {
         public KontaktPageTest(BrowserType browserType) : base(browserType)
@@ -47,7 +46,6 @@ namespace QualityMindsTests.Tests
     [Parallelizable(ParallelScope.Fixtures)]
     [TestFixture(BrowserType.Chrome)]
     [TestFixture(BrowserType.Firefox)]
-    [AllureNUnit]
     public class PortfolioPageTest : BaseTest
     {
         public PortfolioPageTest(BrowserType browserType) : base(browserType)
@@ -75,7 +73,6 @@ namespace QualityMindsTests.Tests
     [Parallelizable(ParallelScope.Fixtures)]
     [TestFixture(BrowserType.Chrome)]
     [TestFixture(BrowserType.Firefox)]
-    [AllureNUnit]
     public class KarrierePageTest : BaseTest
     {
         public KarrierePageTest(BrowserType browserType) : base(browserType)

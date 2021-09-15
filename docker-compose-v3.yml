@@ -1,5 +1,10 @@
 version: '3.7'
 
+volumes:
+  web_data:
+    external: true
+    name: web_data
+
 services:
   hub:
     image: selenium/hub
@@ -24,6 +29,7 @@ services:
     volumes:
       - /dev/shm:/dev/shm
       - c:\Downloads\chrome:/tmp/downloads/chrome
+      - web_data:/tmp/downloads
 
     links:
       - hub
@@ -39,6 +45,7 @@ services:
     volumes:
       - /dev/shm:/dev/shm
       - c:\Downloads\chrome:/tmp/downloads/chrome
+      - web_data:/tmp/downloads
     links:
       - hub
       
@@ -54,6 +61,7 @@ services:
     volumes:
       - /dev/shm:/dev/shm
       - c:\Downloads\firefox:/tmp/downloads/firefox
+      - web_data:/tmp/downloads
     links:
       - hub
       
@@ -69,5 +77,6 @@ services:
     volumes:
       - /dev/shm:/dev/shm
       - c:\Downloads\firefox:/tmp/downloads/firefox
+      - web_data:/tmp/downloads
     links:
       - hub

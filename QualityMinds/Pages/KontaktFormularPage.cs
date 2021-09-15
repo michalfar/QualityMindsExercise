@@ -9,7 +9,7 @@ namespace QualityMinds.Pages
 {
     internal class KontaktFormularPage : BasePage
     {
-        private const string UploadFilePath = @"\Tests\TestData\file.txt";
+        private readonly string FilePath = Path.Combine ("Tests", "TestData", "file.txt");
         IWebElement Vorname => Driver.FindElement(By.XPath("//input[@placeholder='Vorname*']"));
         IWebElement Nachname => Driver.FindElement(By.XPath("//input[@placeholder='Nachname*']"));
         IWebElement Email => Driver.FindElement(By.XPath("//input[@placeholder='Email*']"));
@@ -65,8 +65,9 @@ namespace QualityMinds.Pages
                 allowsDetection.FileDetector = new LocalFileDetector();
             }
 
-            var CurrentDirectory = Directory.GetCurrentDirectory();
-            Upload.SendKeys(CurrentDirectory + UploadFilePath);
+            var combinedFilePath = Path.Combine(Directory.GetCurrentDirectory(), FilePath);
+
+            Upload.SendKeys(combinedFilePath);
             return this;
         }
 

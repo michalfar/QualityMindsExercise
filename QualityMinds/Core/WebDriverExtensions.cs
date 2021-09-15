@@ -11,7 +11,8 @@ namespace QualityMinds.Core
 {
     static class WebDriverExtensions
     {
-        private const string DownloadPath = @"C:\Downloads\";
+        private const string LocalDownloadPath = @"C:\Downloads\";
+        private const string RemoteDownloadPath = @"/tmp/downloads";
 
         public static string GetCurrentUrl(this IWebDriver driver)
         {
@@ -54,19 +55,28 @@ namespace QualityMinds.Core
 
         public static void DownloadFile(this IWebDriver driver, IWebElement element, string expectedFileName)
         {
+            string filePath;
             ICapabilities capabilities = ((RemoteWebDriver)driver).Capabilities;
-            var browserName = capabilities.GetCapability("browserName");
-            string filePath = DownloadPath + browserName + @"\" + expectedFileName;
+            string browserName = capabilities.GetCapability("browserName").ToString();
 
             driver.WaitForClickable(element);
             element.Click();
+
+            if (Configuration.WebDriver.remoteRun)
+            {
+                filePath = Path.Combine(RemoteDownloadPath, browserName, expectedFileName);
+            }
+            else
+            {
+                filePath = Path.Combine(LocalDownloadPath, browserName, expectedFileName);
+            }
 
             try
             {
                 WaitHelper.Wait(driver).Until(x => true.Equals(File.Exists(filePath)));
                 File.Delete(filePath);
             }
-            catch (FileNotFoundException)
+            catch (WebDriverTimeoutException)
             {
                 throw new FileNotFoundException();
             }

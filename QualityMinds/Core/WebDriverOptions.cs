@@ -17,7 +17,7 @@ namespace QualityMinds.Core
             chromeOptions.AddArgument("--lang=de-DE");
             chromeOptions.AddArgument("--window-size=1920,1080");
             chromeOptions.AddArgument("--disable-popup-blockin");
-            chromeOptions.AddUserProfilePreference("download.default_directory", @"c:\Downloads");
+            chromeOptions.AddUserProfilePreference("download.default_directory", @"c:\Downloads\chrome");
 
             if (webDriverConfiguration.Headless)
             {
@@ -33,7 +33,7 @@ namespace QualityMinds.Core
             firefoxOptions.AddArgument("--start-maximized");
             firefoxOptions.AddArgument("--disable-infobars");
             firefoxOptions.AddArgument("--no-sandbox");
-            firefoxOptions.SetPreference("browser.download.dir", @"c:\Downloads");
+            firefoxOptions.SetPreference("browser.download.dir", @"c:\Downloads\firefox");
             firefoxOptions.SetPreference("download.prompt_for_download", false);
             firefoxOptions.SetPreference("browser.helperApps.neverAsk.saveToDisk", "application/pdf");
             firefoxOptions.SetPreference("browser.download.folderList", 2);
